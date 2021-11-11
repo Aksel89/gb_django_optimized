@@ -14,7 +14,7 @@ def login(request):
     login_form = ShopUserLoginForm(data=request.POST or None)
     
     next = request.GET['next'] if 'next' in request.GET.keys() else ''
-    #print('next', next)
+    # print('next', next)
     
     if request.method == 'POST' and login_form.is_valid():
         username = request.POST['username']
@@ -24,7 +24,7 @@ def login(request):
         if user and user.is_active:
             auth.login(request, user)
             if 'next' in request.POST.keys():
-                #print('redirect next', request.POST['next'])
+                # print('redirect next', request.POST['next'])
                 return HttpResponseRedirect(request.POST['next'])
             else:
                 return HttpResponseRedirect(reverse('main'))
