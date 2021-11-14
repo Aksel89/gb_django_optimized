@@ -43,6 +43,7 @@ class ShopUserRegisterForm(UserCreationForm):
         user.save()
         return user
 
+
 class ShopUserEditForm(UserChangeForm):
     class Meta:
         model = ShopUser
@@ -73,4 +74,3 @@ class ShopUserProfileEditForm(forms.ModelForm):
         super(ShopUserProfileEditForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
-

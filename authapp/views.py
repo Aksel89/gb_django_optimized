@@ -54,7 +54,7 @@ def register(request):
             user = register_form.save()
             if send_verify_mail(user):
                 messages.add_message(request, messages.SUCCESS, 'Вам отправлено сообщение на почту! '
-                                                                'Для поддтверждения регистрации проидите по ссылке '
+                                                                'Для поддтверждения регистрации пройдите по ссылке '
                                                                 'из письма')
                 print('сообщение для подтверждения регистрации отправлено')
                 return HttpResponseRedirect(reverse('auth:login'))
