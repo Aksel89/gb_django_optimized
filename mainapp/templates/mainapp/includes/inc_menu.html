@@ -1,3 +1,4 @@
+{% load static %}
 <a href="{% url 'main' %}" class="logo"></a>
 <ul class="menu">
     <li>
@@ -17,9 +18,13 @@
     </li>
     {% if user.is_authenticated %}
         <li>
-            <a href="{% url 'auth:edit' %}">
-                {{ user.first_name|default:'Пользователь' }}
-            </a>
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="" data-toggle="dropdown">
+            <!--<a href="">-->
+                    {{ user.first_name|default:'Пользователь' }}
+                    <span class="caret"></span>
+                </a>
+            </div>
         </li>
     {% endif %}
     {% if user.is_superuser %}
