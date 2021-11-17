@@ -8,7 +8,10 @@ class Basket(models.Model):
     quantity = models.PositiveIntegerField(verbose_name='количество', default=0)
     add_datetime = models.DateTimeField(verbose_name='время добавления', auto_now_add=True)
     
-    
+    @staticmethod
+    def get_item(pk):
+        return Basket.objects.filter(pk=pk).first()
+
     def _get_product_cost(self):
         "return cost of all products this type"
         return self.product.price * self.quantity

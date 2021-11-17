@@ -24,6 +24,18 @@
                     {{ user.first_name|default:'Пользователь' }}
                     <span class="caret"></span>
                 </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{% url 'auth:edit' %}">
+                            профиль
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'orders:orders_list' %}">
+                            заказы
+                        </a>
+                    </li>
+                </ul>
             </div>
         </li>
     {% endif %}

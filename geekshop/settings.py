@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'basketapp',
     'adminapp',
     'social_django',
+    'ordersapp',
 ]
 
 AUTHENTICATION_BACKENDS = (
