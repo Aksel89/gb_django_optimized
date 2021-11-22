@@ -96,7 +96,7 @@ class OrderUpdate(UpdateView):
                 orderitems.instance = self.object
                 orderitems.save()
 
-        if self.object.get_total_coast() ==0:
+        if self.object.get_total_cost() == 0:
             self.object.delete()
 
         return super(OrderUpdate, self).form_valid(form)
