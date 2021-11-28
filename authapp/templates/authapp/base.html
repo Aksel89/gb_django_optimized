@@ -23,7 +23,11 @@
             <div class="h2 text-center head">
                 Аутентификация
             </div>            
-            
+            {% if messages %}
+                {% for msg in messages %}
+                <p>{{ msg }}</p>
+                {% endfor %}
+            {%  endif %}
             {% block content %}
 
             {% endblock %}
