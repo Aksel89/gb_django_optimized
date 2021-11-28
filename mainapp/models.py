@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 
@@ -19,7 +20,10 @@ class Product(models.Model):
     price = models.DecimalField(verbose_name='цена продукта', max_digits=8, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(verbose_name='количество на складе', default=0)
     is_active = models.BooleanField(verbose_name='категория активна', default=True)
-    
+
+    @staticmethod
+    def get_items():
+        return Product.objects.filter(is_active=True, quantity__gte=1).order_by('category', 'name')
+
     def __str__(self):
         return f'{self.name} ({self.category.name})'
-        

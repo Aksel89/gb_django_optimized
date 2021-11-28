@@ -24,14 +24,14 @@
 					<p>
 						<strong>{{ object.username }}</strong>
 					</p>
-					<p>
-					{% if object.first_name %}
-						<b>{{ object.first_name|title }}</b>
-						{% if object.last_name %}
-							<p>{{ object.last_name|title }}</p>
-						{% endif %}
-					{% endif %}
-					</p>
+                    <p>
+                        {% if object.first_name %}
+						    <b>{{ object.first_name|title }}</b>
+						    {% if object.last_name %}
+							    <p>{{ object.last_name|title }}</p>
+						    {% endif %}
+					    {% endif %}
+                    </p>
 				</div>
 				<div class="user_age">
 					age:<br>
