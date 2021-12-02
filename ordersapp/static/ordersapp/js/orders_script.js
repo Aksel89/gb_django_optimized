@@ -65,6 +65,12 @@ window.onload = function () {
        removed: deleteOrderItem
     });
 
+    $('.add_row').on('click', function (){
+        quantity_arr.push(0);
+        price_arr.push(0);
+
+    })
+
     $('.order_form_select').change(function () {
         console.log(target);
     });
@@ -77,7 +83,7 @@ window.onload = function () {
         order_total_quantity = 0;
         order_total_price = 0;
 
-        for (let i=0; i < total_forms; i++) {
+        for (let i=0; i < total_forms; i++){
             order_total_quantity += quantity_arr[i];
             order_total_price += quantity_arr[i] * price_arr[i];
         }
@@ -85,7 +91,7 @@ window.onload = function () {
         $('.order_total_cost').html(Number(order_total_price.toFixed(2).toString()));
     }
 
-    $('.order_form select').change(function () {
+    $('.order_form').on('change', 'select',  function (){
         let target = event.target;
         orderitem_num = parseInt(target.name.match(/\d+/)[0]);
         let orderitem_product_pk = target.options[target.selectedIndex].value;
